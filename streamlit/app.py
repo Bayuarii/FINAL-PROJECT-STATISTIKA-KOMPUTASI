@@ -11,7 +11,11 @@ st.markdown(
             :tulip::cherry_blossom::rose::hibiscus::sunflower::blossom:"
 )
 
+#Tempat buat naruh tabel penyakit
+#
+#
+
 
 #buat input user
 title = st.text_input("Masukan Nama")
-st.write("The current movie title is", title)
+title = st.text_input("Masukan Stres Anda (Sesuai Dengan Tabel Di Atas)")
