@@ -2,19 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-#buat title
-st.markdown(
-    "<h1 style='text-align: center;'>PENDETEKSI TINGKATAN STRES MAHASISWA AKHIR</h1>",
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    "Website Ini Akan Membantu Mendeteksi Tingkat Stres Yang Kalian Miliki &mdash;\
-            :tulip::cherry_blossom::rose::hibiscus::sunflower::blossom:"
-)
-
-
-
 #Tempat buat naruh tabel penyakit
 data = {
     "Kode": ["G1", "G2", "G3", "G4", "G5","G6", "G7", "G8", "G9", "G10",
@@ -46,31 +33,3 @@ st.markdown(
     + "</div></div>",
     unsafe_allow_html=True,
 ) 
-
-
-#buat input user
-with st.form(key="form_input"):
-
-    nama = st.text_input("Masukan Nama:")
-    stres_level = st.text_input("Masukan Salah Satu Kode Gejala Stres Anda (Sesuai Dengan Tabel Di Atas, Misal: G1,G2,G3):")
-    semester = st.selectbox(
-        "Masukan Semester Anda:",
-        ("1", "2", "3","4","5","6","7","8"),
-        index=0,
-        placeholder="Masukan Semester",
-    )
-
-    submit_button = st.form_submit_button(label="Submit")
-    #validasi input
-if submit_button:
-    if not nama:
-        st.error("Nama tidak boleh kosong!")
-    elif not stres_level:
-        st.error("Tingkat stres tidak boleh kosong!")
-    elif not semester:
-        st.error("Mohon isi semester Anda!")
-    else:
-        # Untuk sementara
-        st.success("Data berhasil disimpan!")
-    
-
