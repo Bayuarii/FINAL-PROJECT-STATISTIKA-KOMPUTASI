@@ -13,6 +13,7 @@ df['Nilai Gejala Berat (T3)'] = pd.to_numeric(df['Nilai Gejala Berat (T3)'], err
 df['Nilai Gejala Sedang (T2)'] = pd.to_numeric(df['Nilai Gejala Sedang (T2)'], errors='coerce')
 df['Nilai Gejala Ringan (T1)'] = pd.to_numeric(df['Nilai Gejala Ringan (T1)'], errors='coerce')
 
+
 # Filter berdasarkan gejala yang memiliki nilai lebih dari 0.1
 filtered_df_ringan = df[df['Nilai Gejala Ringan (T1)'] > 0.1]
 Nilai_Awal_Ringan = filtered_df_ringan['Nilai Gejala Ringan (T1)'].sum()
