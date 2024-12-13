@@ -37,13 +37,12 @@ st.markdown(
 st.markdown( 
     "Website Ini Akan Membantu Mendeteksi Tingkat Stres Yang Kalian Miliki &mdash; :tulip::cherry_blossom::rose::hibiscus::sunflower::blossom:"
 )
-# Tempat buat naruh tabel penyakit
 data = {
-    "Kode": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G10",
+    "Kode Gejala": ["G1", "G2", "G3", "G4", "G5", "G6", "G7", "G8", "G9", "G10",
              "G11", "G12", "G13", "G14", "G15", "G16", "G17", "G18", "G19", "G20",
              "G21", "G22", "G23", "G24", "G25", "G26", "G27", "G28", "G29", "G30"
             ],
-    "Gejala": ["Sakit Pinggang", "Sesak Nafas", "Gangguan Pencernaan Berat", "Keringat Berlebihan", "Nafsu Makan Menurun",
+    "Nama Gejala": ["Sakit Pinggang", "Sesak Nafas", "Gangguan Pencernaan Berat", "Keringat Berlebihan", "Nafsu Makan Menurun",
                "Terlalu Peka", "Merasa Putus Asa/Sudah Tidak Punya Harapan", "Merasa Takut", "Tremor(Gemetar Tidak Terkendali)", "Kurang Bersemangat",
                "Sering Emosi/Emosi Tidak Terkontrol", "Sakit Kepala", "Mudah Menangis","Merasa Cemas", "Suasana Hati Mudah Berubah(Moodyan)",
                "Pendiam (Introvert)", "Maag", "Sering Ketegangan Otot di bagian Tertentu(leher, bahu, dan punggung)", "Prestasi Menurun", "Mudah Lelah/Capek",
@@ -53,7 +52,7 @@ data = {
 }
 
 # Membuat DataFrame
-df = pd.DataFrame(data)
+df2 = pd.DataFrame(data)
 
 st.markdown(
     "<h3 style='text-align: center;'>Tabel Gejala Penyakit</h3>",
@@ -62,7 +61,7 @@ st.markdown(
 
 st.markdown(
     "<div style='display: flex; justify-content: center;'><div style='text-align: center;'>"
-    + df.to_html(index=False)
+    + df2.to_html(index=False)
     + "</div></div>",
     unsafe_allow_html=True,
 )
@@ -71,7 +70,7 @@ with st.form(key="form_input"):
     nama = st.text_input("Masukkan Nama:")
     
     # Input Gejala: Menggunakan input tipe teks yang diharapkan dipisahkan koma
-    stres_level = st.text_input("Masukkan Salah Satu Kode Gejala Stres Anda (Misal: G1,G2,G3):")
+    stres_level = st.text_input("Masukkan Lima Kode Gejala Stres Anda (Misal: G1, G2, G3, G4, G5):")
     
     semester = st.selectbox(
         "Masukkan Semester Anda:",
@@ -104,27 +103,21 @@ if submit_button:
             if kode in df['Kode Gejala'].values:
                 nilai_gejala_ringan = df.loc[df['Kode Gejala'] == kode, 'Nilai Gejala Ringan (T1)'].values[0]
                 total_nilai_ringan += nilai_gejala_ringan
-                st.write(f'Nilai Gejala Ringan T1 untuk {kode}: {nilai_gejala_ringan}')
-            else:
-                st.error(f'Kode gejala {kode} tidak ditemukan dalam dataset.')
+
 
         # Mengambil nilai untuk gejala sedang
         for kode in kode_input:
             if kode in df['Kode Gejala'].values:
                 nilai_gejala_sedang = df.loc[df['Kode Gejala'] == kode, 'Nilai Gejala Sedang (T2)'].values[0]
                 total_nilai_sedang += nilai_gejala_sedang
-                st.write(f'Nilai Gejala Sedang T2 untuk {kode}: {nilai_gejala_sedang}')
-            else:
-                st.error(f'Kode gejala {kode} tidak ditemukan dalam dataset.')
+
 
         # Mengambil nilai untuk gejala berat
         for kode in kode_input:
             if kode in df['Kode Gejala'].values:
                 nilai_gejala_berat = df.loc[df['Kode Gejala'] == kode, 'Nilai Gejala Berat (T3)'].values[0]
                 total_nilai_berat += nilai_gejala_berat
-                st.write(f'Nilai Gejala Berat T3 untuk {kode}: {nilai_gejala_berat}')
-            else:
-                st.error(f'Kode gejala {kode} tidak ditemukan dalam dataset.')
+
 
         # Menghitung prior x likelihood stress
         prior_ringan = Nilai_Bobot_Ringan
