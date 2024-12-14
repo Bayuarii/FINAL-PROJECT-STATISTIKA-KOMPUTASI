@@ -143,3 +143,4 @@ if submit_button:
             st.success(f"Maka Anda mengalami Stress Sedang")
         else:
             st.success(f"Maka Anda mengalami Stress Berat")
+    #nyoba
