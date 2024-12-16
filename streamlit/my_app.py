@@ -203,7 +203,7 @@ if submit_button:
             )
 
         # Menambahkan logika dropdown untuk saran stres sedang
-        elif posterior_sedang > posterior_berat:
+        elif posterior_sedang > posterior_berat and posterior_sedang > posterior_ringan:
             st.success("\U0001F4A1 Tingkat Stress Anda : Sedang \U0001F4A1")
             st.markdown(
                 """
@@ -259,7 +259,7 @@ if submit_button:
             )
 
         # Menambahkan logika dropdown untuk saran stres berat
-        else:
+        elif posterior_berat > posterior_ringan and posterior_berat > posterior_sedang:
             st.success("\U0001F6D1 Tingkat Stress Anda : Berat \U0001F6D1")
             st.warning(
                 "\U0001F534 Anda disarankan untuk berkonsultasi lebih lanjut mengenai kondisi Anda. Berikut adalah saran yang dapat membantu Anda:",
@@ -298,3 +298,5 @@ if submit_button:
                 """,
                 unsafe_allow_html=True,
             )
+        else : 
+                st.success("Maka anda tidak dapat didiagnosis stress")
