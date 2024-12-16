@@ -112,7 +112,7 @@ st.table(df2)
 
 with st.form(key="form_input"):
     nama = st.text_input("Masukkan Nama 🧑‍🎓:")
-    stres_level = st.text_input("Masukkan Lima Kode Gejala Anda 🧠 (Misal: G1, G2, G3):")
+    stres_level = st.text_input("Masukkan Kode Gejala Anda 🧠 (Misal: G1, G2, G3):")
     semester = st.selectbox("Pilih Semester Anda 📚:", ("1", "2", "3", "4", "5", "6", "7", "8"), index=0)
     submit_button = st.form_submit_button(label="Submit 🚀")
 
