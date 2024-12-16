@@ -108,7 +108,61 @@ data = {
 df2 = pd.DataFrame(data)
 
 st.markdown("<h3 class='main-title'>📋 Tabel Gejala Penyakit 📋</h3>", unsafe_allow_html=True)
-st.table(df2)
+
+# Membuat tabel yang scrollable dengan warna army
+st.markdown(
+    """
+    <style>
+    .scrollable-table {
+        max-height: 400px; /* Atur tinggi maksimal tabel */
+        overflow-y: scroll; /* Tambahkan scroll vertikal */
+        border: 1px solid #ccc;
+        border-radius: 15px;
+        background-color:rgb(0, 0, 0); /* Warna army */
+        padding: 10px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center;
+        background-color:rgb(0, 0, 0); /* Warna army untuk tabel */
+        color:rgb(0, 0, 0); /* Warna teks hijau army */
+    }
+    th {
+        background-color:rgb(0, 0, 0); /* Warna army yang lebih terang untuk header */
+        color: white; /* Warna teks putih untuk header agar kontras */
+        text-align: center;
+    }
+    td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #ddd;
+        color:rgb(255, 255, 255); /* Warna teks hijau army */
+        background-color:rgb(0, 0, 0); /* Warna abu terang untuk isi tabel */
+    }
+
+    .table-container {
+        margin-bottom: 40px; /* Add margin bottom to create space between the table and the input form */
+    }
+    .form-container {
+        margin-top: 40px; /* Optional: Add margin top to create space before the form */
+    }
+    
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Tampilkan tabel dalam div scrollable
+st.markdown(
+    """
+    <div class="scrollable-table">
+        {0}
+    </div>
+    """.format(df2.to_html(index=False, escape=False)),
+    unsafe_allow_html=True,
+)
+
 
 with st.form(key="form_input"):
     nama = st.text_input("Masukkan Nama 🧑‍🎓:")
@@ -298,7 +352,13 @@ if submit_button:
                 """,
                 unsafe_allow_html=True,
             )
-        elif posterior_berat == posterior_ringan and posterior_berat == posterior_sedang and posterior_sedang == posterior_ringan: 
-                st.success("Maka anda tidak dapat didiagnosis stress")
+        elif posterior_ringan == posterior_sedang == posterior_berat: 
+                st.warning(
+                "⚠️ Tingkat stres Anda tidak dapat didiagnosis karena hasil perhitungan tidak menunjukkan kategori dominan. "
+                "Pastikan Anda memilih gejala yang relevan, atau pertimbangkan untuk berkonsultasi lebih lanjut."
+                )
         else :
-            st.success("terdapat kesalahan dalam pemasukan kode gejala anda ")
+            st.error(
+            "🚫 Terdapat kesalahan dalam pemasukan kode gejala Anda. "
+            "Periksa kembali apakah kode gejala yang Anda masukkan sudah benar dan terdapat dalam tabel."
+            )
