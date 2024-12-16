@@ -298,5 +298,7 @@ if submit_button:
                 """,
                 unsafe_allow_html=True,
             )
-        else : 
+        elif posterior_berat == posterior_ringan and posterior_berat == posterior_sedang: 
                 st.success("Maka anda tidak dapat didiagnosis stress")
+        else :
+            st.success("terdapat kesalahan dalam pemasukan kode gejala anda ")
