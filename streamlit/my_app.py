@@ -157,7 +157,7 @@ if submit_button:
         posterior_berat = PxL_berat / (PxL_ringan + PxL_sedang + PxL_berat)
 
         if posterior_ringan > posterior_sedang and posterior_ringan > posterior_berat:
-            st.success("\U0001F33C Maka Anda mengalami Stres Ringan \U0001F33C")
+            st.success("\U0001F33C Tingkat Stress Anda : Ringan \U0001F33C")
             st.markdown(
                 """
                 <p style="font-size: 16px; text-align: center;">
@@ -203,8 +203,8 @@ if submit_button:
             )
 
         elif posterior_sedang > posterior_berat:
-            st.success("Maka Anda mengalami Stres Sedang")
-            st.success("Maka Anda mengalami Stres Sedang")
+            st.success("Tingkat Stress Anda : Sedang")
+            st.success("Tingkat Stress Anda : Sedang")
             st.markdown(
                 """
                 Berikut adalah saran singkat untuk mengatasi stres sedang:
@@ -223,7 +223,7 @@ if submit_button:
                 unsafe_allow_html=True
             )
         else:
-            st.success("Maka Anda mengalami Stres Berat")
+            st.success("Tingkat Stress Anda : Berat")
             st.warning("Anda disarankan untuk berkonsultasi lebih lanjut mengenai kondisi Anda.")
             st.markdown(
                 """
