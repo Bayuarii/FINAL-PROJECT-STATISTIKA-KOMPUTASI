@@ -156,7 +156,7 @@ if submit_button:
         posterior_sedang = PxL_sedang / (PxL_ringan + PxL_sedang + PxL_berat)
         posterior_berat = PxL_berat / (PxL_ringan + PxL_sedang + PxL_berat)
 
-        if posterior_ringan > posterior_sedang:
+        if posterior_ringan > posterior_sedang and posterior_ringan > posterior_berat:
             st.success("\U0001F33C Maka Anda mengalami Stres Ringan \U0001F33C")
             st.markdown(
                 """
