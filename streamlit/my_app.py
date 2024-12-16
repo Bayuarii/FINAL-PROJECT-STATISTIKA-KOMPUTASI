@@ -202,36 +202,99 @@ if submit_button:
                 unsafe_allow_html=True,
             )
 
+        # Menambahkan logika dropdown untuk saran stres sedang
         elif posterior_sedang > posterior_berat:
-            st.success("Tingkat Stress Anda : Sedang")
-            st.success("Tingkat Stress Anda : Sedang")
+            st.success("\U0001F4A1 Tingkat Stress Anda : Sedang \U0001F4A1")
             st.markdown(
                 """
-                Berikut adalah saran singkat untuk mengatasi stres sedang:
-                
-                - **Olahraga Teratur:** Aktivitas fisik seperti jogging atau yoga.
-                - **Rencana dan Prioritas:** Buat daftar tugas dan atur prioritas.
-                - **Teknik Relaksasi:** Meditasi, pernapasan dalam, atau relaksasi otot progresif.
-                - **Batasi Pemicu Stres:** Hindari hal-hal yang membuat Anda stres.
-                - **Diet Sehat:** Konsumsi makanan seimbang dan hindari kafein.
-                - **Cari Dukungan:** Berbicara dengan teman, keluarga, atau profesional.
-                - **Mengembangkan Hobi:** Luangkan waktu untuk aktivitas yang Anda nikmati.
-                - **Tidur yang Cukup:** Pastikan tidur Anda berkualitas.
-                - **Berlatih Mindfulness:** Fokus pada momen saat ini.
-                - **Pertimbangkan Terapi:** Konsultasi dengan terapis jika diperlukan.
+                <p style="font-size: 16px; text-align: center;">
+                    Stres sedang memerlukan perhatian lebih. Berikut adalah beberapa saran untuk membantu Anda mengatasinya.
+                </p>
                 """,
-                unsafe_allow_html=True
+                unsafe_allow_html=True,
             )
+
+            # Dropdown saran untuk stres sedang
+            saran_opsi_sedang = st.selectbox(
+                "\U0001F4A1 Pilih saran yang ingin Anda coba untuk mengatasi stres sedang:",
+                [
+                    "Olahraga Teratur \U0001F3CB\u200D\U0001F3FC",
+                    "Rencana dan Prioritas \U0001F4CB",
+                    "Teknik Relaksasi \U0001F9D8",
+                    "Batasi Pemicu Stres \U0001F6AB",
+                    "Diet Sehat \U0001F96C",
+                    "Cari Dukungan \U0001F91D",
+                    "Mengembangkan Hobi \U0001F3A8",
+                    "Tidur yang Cukup \U0001F4A4",
+                    "Berlatih Mindfulness \U0001F5FF",
+                    "Pertimbangkan Terapi \U0001F691",
+                ],
+            )
+
+            # Tampilkan deskripsi saran berdasarkan pilihan
+            if saran_opsi_sedang == "Olahraga Teratur \U0001F3CB\u200D\U0001F3FC":
+                st.info("Lakukan aktivitas fisik seperti jogging, yoga, atau bersepeda untuk meningkatkan hormon endorfin yang membantu mengurangi stres.")
+            elif saran_opsi_sedang == "Rencana dan Prioritas \U0001F4CB":
+                st.info("Buat daftar tugas harian dan atur prioritas Anda. Ini membantu mengurangi perasaan kewalahan.")
+            elif saran_opsi_sedang == "Teknik Relaksasi \U0001F9D8":
+                st.info("Praktikkan teknik seperti meditasi, pernapasan dalam, atau relaksasi otot progresif untuk menenangkan pikiran dan tubuh.")
+            elif saran_opsi_sedang == "Batasi Pemicu Stres \U0001F6AB":
+                st.info("Identifikasi hal-hal yang memicu stres dan coba kurangi atau hindari paparan terhadapnya.")
+            elif saran_opsi_sedang == "Diet Sehat \U0001F96C":
+                st.info("Konsumsi makanan bergizi, termasuk sayur, buah, dan protein, untuk menjaga energi dan suasana hati.")
+            elif saran_opsi_sedang == "Cari Dukungan \U0001F91D":
+                st.info("Berbicaralah dengan teman, keluarga, atau bergabung dengan komunitas pendukung untuk mendapatkan dukungan emosional.")
+            elif saran_opsi_sedang == "Mengembangkan Hobi \U0001F3A8":
+                st.info("Luangkan waktu untuk hobi atau aktivitas kreatif yang Anda nikmati, seperti melukis, memasak, atau bermain musik.")
+            elif saran_opsi_sedang == "Tidur yang Cukup \U0001F4A4":
+                st.info("Pastikan Anda tidur selama 7-9 jam setiap malam untuk membantu tubuh pulih dari stres.")
+            elif saran_opsi_sedang == "Berlatih Mindfulness \U0001F5FF":
+                st.info("Cobalah untuk fokus pada momen saat ini dengan latihan mindfulness, seperti memperhatikan pernapasan atau lingkungan sekitar Anda.")
+            elif saran_opsi_sedang == "Pertimbangkan Terapi \U0001F691":
+                st.info("Jika stres Anda berlanjut atau memburuk, pertimbangkan untuk berkonsultasi dengan profesional kesehatan mental.")
+
+            st.markdown(
+                "<p style='text-align: center; font-size: 14px;'>Jangan lupa untuk merawat diri sendiri dan mencari bantuan jika diperlukan. Anda tidak sendirian! \U0001F4AA</p>",
+                unsafe_allow_html=True,
+            )
+
+        # Menambahkan logika dropdown untuk saran stres berat
         else:
-            st.success("Tingkat Stress Anda : Berat")
-            st.warning("Anda disarankan untuk berkonsultasi lebih lanjut mengenai kondisi Anda.")
+            st.success("\U0001F6D1 Tingkat Stress Anda : Berat \U0001F6D1")
+            st.warning(
+                "\U0001F534 Anda disarankan untuk berkonsultasi lebih lanjut mengenai kondisi Anda. Berikut adalah saran yang dapat membantu Anda:",
+                icon="⚠️",
+            )
+
+            # Dropdown saran untuk stres berat
+            saran_opsi_berat = st.selectbox(
+                "\U0001F4A1 Pilih saran yang ingin Anda coba untuk mengatasi stres berat:",
+                [
+                    "Konsultasi dengan Profesional \U0001F691",
+                    "Manajemen Waktu yang Ketat \U0001F4C5",
+                    "Dukungan Sosial Intensif \U0001F91D",
+                    "Program Relaksasi Mendalam \U0001F9D8",
+                    "Rawat Diri Secara Intensif \U0001F9D7‍♂️",
+                ],
+            )
+
+            # Tampilkan deskripsi saran berdasarkan pilihan
+            if saran_opsi_berat == "Konsultasi dengan Profesional \U0001F691":
+                st.info("Pertimbangkan untuk berkonsultasi dengan psikolog atau psikiater untuk mendapatkan penanganan yang tepat sesuai kebutuhan Anda. Anda juga bisa mencoba layanan seperti [HALODOC](https://www.halodoc.com) untuk konsultasi online.")
+            elif saran_opsi_berat == "Manajemen Waktu yang Ketat \U0001F4C5":
+                st.info("Buat jadwal harian yang jelas dan realistis untuk membantu mengelola tekanan dan tugas sehari-hari dengan lebih baik.")
+            elif saran_opsi_berat == "Dukungan Sosial Intensif \U0001F91D":
+                st.info("Carilah dukungan dari teman dekat, keluarga, atau kelompok pendukung untuk berbagi beban emosional Anda.")
+            elif saran_opsi_berat == "Program Relaksasi Mendalam \U0001F9D8":
+                st.info("Ikuti program relaksasi seperti yoga terapeutik, mindfulness lanjutan, atau retret meditasi untuk membantu mengatasi stres berat.")
+            elif saran_opsi_berat == "Rawat Diri Secara Intensif \U0001F9D7‍♂️":
+                st.info("Luangkan waktu untuk perawatan diri secara mendalam, seperti spa, refleksi, atau aktivitas yang menenangkan jiwa.")
+
             st.markdown(
                 """
-                <a href="https://www.halodoc.com/kesehatan-mental" target="_blank" style="text-decoration:none;">
-                    <button style="background-color:#ff4d4d; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">
-                        Konsultasi Sekarang di Halodoc
-                    </button>
-                </a>
+                <p style='text-align: center; font-size: 14px;'>
+                    Jika stres Anda terasa sangat berat dan sulit diatasi, segera cari bantuan profesional. Kesehatan mental Anda sangat berharga! \U0001F64F
+                </p>
                 """,
                 unsafe_allow_html=True,
             )
