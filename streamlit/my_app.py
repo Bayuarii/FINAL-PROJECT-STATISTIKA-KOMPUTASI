@@ -334,7 +334,7 @@ if submit_button:
 
             # Tampilkan deskripsi saran berdasarkan pilihan
             if saran_opsi_berat == "Konsultasi dengan Profesional \U0001F691":
-                st.info("Pertimbangkan untuk berkonsultasi dengan psikolog atau psikiater untuk mendapatkan penanganan yang tepat sesuai kebutuhan Anda. Anda juga bisa mencoba layanan seperti [HALODOC](https://www.halodoc.com) untuk konsultasi online.")
+                st.info("Pertimbangkan untuk berkonsultasi dengan psikolog atau psikiater untuk mendapatkan penanganan yang tepat sesuai kebutuhan Anda. Anda juga bisa mencoba layanan seperti [HALODOC](https://www.halodoc.com/kesehatan-mental) untuk konsultasi online.")
             elif saran_opsi_berat == "Manajemen Waktu yang Ketat \U0001F4C5":
                 st.info("Buat jadwal harian yang jelas dan realistis untuk membantu mengelola tekanan dan tugas sehari-hari dengan lebih baik.")
             elif saran_opsi_berat == "Dukungan Sosial Intensif \U0001F91D":
