@@ -85,7 +85,7 @@ st.markdown(
 )
 
 # Judul dan Deskripsi
-st.markdown("<h1 class='main-title'>✨ PENDETEKSI TINGKAT STRES MAHASISWA AKHIR ✨</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='main-title'>✨ PENDETEKSI TINGKAT STRES MAHASISWA ✨</h1>", unsafe_allow_html=True)
 st.markdown(
     "<h4 class='sub-title'>😊 Selamat Datang! Kami siap membantu Anda mendeteksi tingkat stres Anda.😊 </h4>",
     unsafe_allow_html=True,
@@ -179,20 +179,20 @@ if submit_button:
         st.error("🚫 Harap isi semester Anda! 🤔")
     else:
         kode_input = [kode.strip() for kode in stres_level.split(',')]
-        total_nilai_ringan = 0
-        total_nilai_sedang = 0
-        total_nilai_berat = 0
+        total_nilai_ringan = 1
+        total_nilai_sedang = 1
+        total_nilai_berat = 1
 
         for kode in kode_input:
             if kode in df['Kode Gejala'].values:
                 nilai_gejala_ringan = df.loc[df['Kode Gejala'] == kode, 'Nilai Gejala Ringan (T1)'].values[0]
-                total_nilai_ringan += nilai_gejala_ringan
+                total_nilai_ringan *= nilai_gejala_ringan
 
                 nilai_gejala_sedang = df.loc[df['Kode Gejala'] == kode, 'Nilai Gejala Sedang (T2)'].values[0]
-                total_nilai_sedang += nilai_gejala_sedang
+                total_nilai_sedang *= nilai_gejala_sedang
 
                 nilai_gejala_berat = df.loc[df['Kode Gejala'] == kode, 'Nilai Gejala Berat (T3)'].values[0]
-                total_nilai_berat += nilai_gejala_berat
+                total_nilai_berat *= nilai_gejala_berat
 
         prior_ringan = Nilai_Bobot_Ringan
         likelihood_ringan = total_nilai_ringan
