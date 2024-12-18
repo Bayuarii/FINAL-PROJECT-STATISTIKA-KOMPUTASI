@@ -76,7 +76,7 @@ st.markdown(
         padding: 8px;
     }
     .dataframe th {
-        background-color: #3d85c6;
+        background-color:rgb(10, 62, 107);
         color: #fff;
     }
 </style>
