@@ -3,7 +3,7 @@ import numpy as np
 
 
 #membaca dataset dari excel
-df = pd.read_csv('C:/Users/lenov/OneDrive/Documents/GitHub/FINAL-PROJECT-STATISTIKA-KOMPUTASI/Dataset_Stres - dataset.csv')
+df = pd.read_csv('C:/Penyimpanan Utama/Documents/GitHub/FINAL-PROJECT-STATISTIKA-KOMPUTASI/Dataset_Stres - dataset.csv')
 
 
 
